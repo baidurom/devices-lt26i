@@ -472,3 +472,26 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
+
+#
+# Belowing are Baidu services
+#
+service backuprestore /system/bin/backuprestore
+        class main
+        socket backuprestore stream 600 system system
+
+service WordSegService /system/bin/WordSegService
+	class main
+	oneshot
+
+service propertystart /system/bin/property_start.sh
+	disabled
+	oneshot
+
+service propertystop /system/bin/property_stop.sh
+	disabled
+	oneshot
+
+service serviceext /sbin/serviceext
+        class main
+	oneshot
