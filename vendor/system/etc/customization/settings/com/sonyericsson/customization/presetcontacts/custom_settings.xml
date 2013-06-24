@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="presetcontacts">
+      <group id="1">
+         <setting key="name" runtime="false">索尼Xperia™QQ在线客服</setting>
+         <setting key="number" runtime="false">800020342(QQ号)</setting>
+      </group>
+      <group id="2">
+         <setting key="name" runtime="false">索尼Xperia™客户服务热线</setting>
+         <setting key="number" runtime="false">4008100000</setting>
+      </group>
+      <group id="3">
+         <setting key="name" runtime="false">索尼Xperia™短信服务</setting>
+         <setting key="number" runtime="false">106980000618</setting>
+      </group>
+   </groups>
+</settings>

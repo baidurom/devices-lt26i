@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="stage">
+      <group>
+         <groups type="folders">
+            <group>
+               <setting key="id" runtime="true">娱乐</setting>
+               <setting key="name" runtime="true">娱乐</setting>
+               <setting key="position" runtime="true">0</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.playnowchina.android.app.LoginActivity</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.playnowchina.android</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.sina.mfweibo.SplashActivity</setting>
+               <setting key="package-name" runtime="true">com.sina.mfweibo</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.ting.mp3.suoai.SplashActivity</setting>
+               <setting key="package-name" runtime="true">com.ting.mp3.suoai</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.youku.phone.sonyericsson.ActivityWelcome</setting>
+               <setting key="package-name" runtime="true">com.youku.phone.sonyericsson</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.taobao.tao.Welcome</setting>
+               <setting key="package-name" runtime="true">com.taobao.taobao</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.opera.mini.android.Browser</setting>
+               <setting key="package-name" runtime="true">com.oupeng.mini.android</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.metago.astro.SplashActivity</setting>
+               <setting key="package-name" runtime="true">com.metago.astro</setting>
+               <setting key="folder" runtime="true">娱乐</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.android.email.activity.Welcome</setting>
+               <setting key="package-name" runtime="true">com.android.email</setting>
+               <setting key="position" runtime="true">1</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.conversations.ui.ConversationListActivity</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.conversations</setting>
+               <setting key="position" runtime="true">2</setting>
+            </group>
+         </groups>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.android.socialphonebook.DialerEntryActivity</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.android.socialphonebook</setting>
+               <setting key="position" runtime="true">3</setting>
+            </group>
+         </groups>
+      </group>
+   </groups>
+</settings>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<devices>
+   <version>1.0</version>
+   <device>
+      <CustomerID>443</CustomerID>
+      <store name="Media Store" url="http://media-go.cn-playnow.com.cn">
+         <launchstoreexternally>true</launchstoreexternally>
+      </store>
+   </device>
+</devices>

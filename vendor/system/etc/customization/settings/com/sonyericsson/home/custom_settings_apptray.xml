@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="app-tray">
+      <group>
+         <groups type="activities">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.playnowchina.android.app.LoginActivity</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.playnowchina.android</setting>
+               <setting key="position" runtime="true">0</setting>
+               <setting key="pane" runtime="true">0</setting>
+            </group>
+         </groups>
+      </group>
+   </groups>
+</settings>

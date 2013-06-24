@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="enable-doodle" runtime="false">false</setting>
+   <setting key="mms-max-size" runtime="false">300</setting>
+   <setting key="use-sc-timestamp" runtime="false">true</setting>
+</settings>

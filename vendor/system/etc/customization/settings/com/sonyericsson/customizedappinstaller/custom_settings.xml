@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="Application">
+      <group>
+         <setting key="app-name" runtime="false">com.android.quicksearchbox.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.ting.mp3.suoai.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.dianping.v1.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">cn.emoney.level2.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">se.installer.fishgame_lt26.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.flightmanager.view.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.adobe.reader.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.metago.astro.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.sonyericsson.androidapp.memorycardinstaller.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.sina.mfweibo.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.sonyericsson.androidapp.sina_mb_ts3.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.sonyericsson.extras.smarttags.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.youku.phone.sonyericsson.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">se.installer.letsgolf2_lt26.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.oupeng.mini.android.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.tencent.mobileqq.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">com.taobao.taobao.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+      <group>
+         <setting key="app-name" runtime="false">sina.mobile.tianqitong.apk</setting>
+         <setting key="deletable" runtime="false">true</setting>
+      </group>
+   </groups>
+</settings>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="default-focus-position" runtime="false">4</setting>
+   <groups type="info">
+      <group id="0">
+         <setting key="package-name" runtime="true">com.ting.mp3.suoai</setting>
+         <setting key="component-name" runtime="true">com.ting.mp3.suoai.SplashActivity</setting>
+      </group>
+      <group id="1">
+         <setting key="package-name" runtime="true">com.oupeng.mini.android</setting>
+         <setting key="component-name" runtime="true">com.opera.mini.android.Browser</setting>
+      </group>
+      <group id="2">
+         <setting key="package-name" runtime="true">com.youku.phone.sonyericsson</setting>
+         <setting key="component-name" runtime="true">com.youku.phone.sonyericsson.ActivityWelcome</setting>
+      </group>
+      <group id="3">
+         <setting key="package-name" runtime="true">com.sonyericsson.album</setting>
+         <setting key="component-name" runtime="true">com.sonyericsson.album.MainActivity</setting>
+      </group>
+      <group id="4">
+         <setting key="package-name" runtime="true">com.sina.mfweibo</setting>
+         <setting key="component-name" runtime="true">com.sina.mfweibo.SplashActivity</setting>
+      </group>
+      <group id="5">
+         <setting key="package-name" runtime="true">com.android.quicksearchbox</setting>
+         <setting key="component-name" runtime="true">com.android.quicksearchbox.SearchActivity</setting>
+      </group>
+      <group id="6">
+         <setting key="package-name" runtime="true">com.android.email</setting>
+         <setting key="component-name" runtime="true">com.android.email.activity.Welcome</setting>
+      </group>
+   </groups>
+</settings>

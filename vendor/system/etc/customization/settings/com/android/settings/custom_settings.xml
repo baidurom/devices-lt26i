@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="default-locale" runtime="false">zh_CN</setting>
+   <setting key="default_input_method" runtime="false">com.sonyericsson.textinput.chinese/.glue.InputMethodServiceGlue</setting>
+   <setting key="gshare_visibility" runtime="false">false</setting>
+   <setting key="wifi_on" runtime="true">0</setting>
+   <setting key="auto_time" runtime="true">1</setting>
+   <setting key="auto_time_zone" runtime="true">1</setting>
+   <setting key="time_12_24" runtime="true">24</setting>
+</settings>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="homepage" runtime="true">http://www.sonymobile.com/cn/products/phones/xperia-s</setting>
+   <setting key="search-engine-disabled" runtime="false">true</setting>
+   <groups type="bookmark">
+      <group id="1">
+         <setting key="title" runtime="true">LT26i主页</setting>
+         <setting key="url" runtime="true">http://www.sonymobile.com/cn/products/phones/xperia-s</setting>
+      </group>
+      <group id="100">
+         <setting key="title" runtime="true">GreenHeart info</setting>
+         <setting key="url" runtime="true">http://bm.sonymobile.com/greenheart</setting>
+      </group>
+      <group id="101">
+         <setting key="title" runtime="true">Recycle phone</setting>
+         <setting key="url" runtime="true">http://bm.sonymobile.com/recycle</setting>
+      </group>
+      <group id="102">
+         <setting key="title" runtime="true">Sony Mobile</setting>
+         <setting key="url" runtime="true">http://touch.sonymobile.com</setting>
+      </group>
+   </groups>
+</settings>

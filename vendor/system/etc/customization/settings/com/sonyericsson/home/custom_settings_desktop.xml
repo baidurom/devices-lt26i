@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="desktop">
+      <group>
+         <groups type="remove-widgets">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.android.support.appwidget.HelpWidget</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.android.support</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.androidapp.apnswitcher.widget.ApnWidgetProvider</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.androidapp.apnswitcher</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">1</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">0</setting>
+               <setting key="pane" runtime="true">0</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">sina.mobile.tianqitong.appwidget.WidgetProvider</setting>
+               <setting key="package-name" runtime="true">sina.mobile.tianqitong</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">2</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">2</setting>
+               <setting key="pane" runtime="true">0</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">com.android.quicksearchbox.SearchWidgetProvider</setting>
+               <setting key="package-name" runtime="true">com.android.quicksearchbox</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">1</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">0</setting>
+               <setting key="pane" runtime="true">2</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.rrmediadiscovery.widget.MediaUpdatesWidgetProvider</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.rrmediadiscovery</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">1</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">0</setting>
+               <setting key="pane" runtime="true">3</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.androidapp.storefront.widget.StoreFrontWidgetProvider</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.androidapp.storefront</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">1</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">0</setting>
+               <setting key="pane" runtime="true">4</setting>
+            </group>
+         </groups>
+         <groups type="widgets">
+            <group>
+               <setting key="name" runtime="true">com.sonyericsson.trackid.widget.TrackIdWidgetProvider</setting>
+               <setting key="package-name" runtime="true">com.sonyericsson.trackid</setting>
+               <setting key="width" runtime="true">4</setting>
+               <setting key="height" runtime="true">1</setting>
+               <setting key="x" runtime="true">0</setting>
+               <setting key="y" runtime="true">1</setting>
+               <setting key="pane" runtime="true">4</setting>
+            </group>
+         </groups>
+      </group>
+   </groups>
+</settings>

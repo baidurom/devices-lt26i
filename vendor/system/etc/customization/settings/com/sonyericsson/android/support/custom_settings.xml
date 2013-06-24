@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="operator-name" runtime="false">索尼Xperia™</setting>
+   <setting key="operator-email" runtime="false">questions.cn@sonymobile.com</setting>
+   <setting key="operator-phone" runtime="false">400-810-0000</setting>
+   <setting key="operator-webpage" runtime="false">http://www.sonymobile.com/cn</setting>
+   <setting key="operator-remove-usersupport" runtime="false">false</setting>
+   <setting key="operator-default-main-box-name" runtime="false">索尼Xperia™</setting>
+   <setting key="is-mainland-china" runtime="false">true</setting>
+</settings>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <groups type="providers-other">
+      <group>
+         <setting key="outgoing-full-email-login" runtime="true">true</setting>
+         <setting key="incoming-full-email-login" runtime="true">true</setting>
+         <setting key="domain" runtime="false">vip.sina.com</setting>
+         <setting key="incoming-protocol" runtime="true">pop</setting>
+         <setting key="incoming-server" runtime="true">pop3.vip.sina.com</setting>
+         <setting key="incoming-port" runtime="true">110</setting>
+         <setting key="outgoing-server" runtime="true">smtp.vip.sina.com</setting>
+         <setting key="outgoing-port" runtime="true">25</setting>
+         <setting key="outgoing-authentication" runtime="true">true</setting>
+      </group>
+      <group>
+         <setting key="outgoing-full-email-login" runtime="true">true</setting>
+         <setting key="incoming-full-email-login" runtime="true">true</setting>
+         <setting key="domain" runtime="false">sohu.com</setting>
+         <setting key="incoming-protocol" runtime="true">pop</setting>
+         <setting key="incoming-server" runtime="true">pop3.sohu.com</setting>
+         <setting key="incoming-port" runtime="true">110</setting>
+         <setting key="outgoing-server" runtime="true">smtp.sohu.com</setting>
+         <setting key="outgoing-port" runtime="true">25</setting>
+         <setting key="outgoing-authentication" runtime="true">true</setting>
+      </group>
+      <group>
+         <setting key="outgoing-full-email-login" runtime="true">true</setting>
+         <setting key="incoming-full-email-login" runtime="true">true</setting>
+         <setting key="domain" runtime="false">163.com</setting>
+         <setting key="incoming-protocol" runtime="true">pop</setting>
+         <setting key="incoming-server" runtime="true">pop.163.com</setting>
+         <setting key="incoming-port" runtime="true">110</setting>
+         <setting key="outgoing-server" runtime="true">smtp.163.com</setting>
+         <setting key="outgoing-port" runtime="true">25</setting>
+         <setting key="outgoing-authentication" runtime="true">true</setting>
+      </group>
+   </groups>
+</settings>

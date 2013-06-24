@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="disable-integrated-app-presence" runtime="false">true</setting>
+   <setting key="disabled-im-services" runtime="false">0,5,6,7,3,2</setting>
+   <setting key="disabled-contact-fields" runtime="false">vnd.android.cursor.item/sip_address</setting>
+   <setting key="show-facebookgoogle" runtime="false">false</setting>
+   <setting key="enable-speed-dial" runtime="false">true</setting>
+   <setting key="enable-smart-search" runtime="false">true</setting>
+</settings>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="widgetLogo" runtime="false">Storefront_widget_logo.png</setting>
+   <setting key="widgetTitle" runtime="false">更多游戏</setting>
+   <setting key="widgetFeed" runtime="false">1</setting>
+   <setting key="storeName" runtime="false">GamesMLC</setting>
+   <setting key="randomize" runtime="false">true</setting>
+   <setting key="widgetClickAction" runtime="false">store</setting>
+   <setting key="widgetName" runtime="false">获取游戏</setting>
+   <groups type="feed">
+      <group id="1">
+         <setting key="feedTitle" runtime="false">更多游戏</setting>
+         <setting key="feedTabTitle" runtime="false">游戏</setting>
+         <setting key="feedUrl" runtime="false">http://recommender.sonyericsson.com/rss/sam?category=games</setting>
+         <setting key="appendSimInformation" runtime="false">true</setting>
+         <setting key="feedType" runtime="false">0</setting>
+      </group>
+   </groups>
+</settings>

@@ -1,0 +1,7 @@
+version: 1.4.10.f53a296
+apkFileName: framework-res.apk
+isFrameworkApk: true
+usesFramework:
+  ids:
+  - 2
+  tag: vendor_lt26i

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="812">
+   <setting key="wifi-screen-visibility" runtime="false">false</setting>
+   <setting key="internet-settings-screen-visibility" runtime="false">false</setting>
+   <setting key="time-and-date-screen-visibility" runtime="false">true</setting>
+   <setting key="contacts-visibility" runtime="false">false</setting>
+   <setting key="auto-sync-visibility" runtime="false">false</setting>
+   <setting key="internet-connections-visibility" runtime="false">false</setting>
+   <setting key="operator-screen-visibility" runtime="false">true</setting>
+   <setting key="operator-screen-resourcepackage" runtime="false">com.sonyericsson.androidapp.rrsetupwizard</setting>
+   <groups type="operator-plugins">
+      <group>
+         <setting key="id" runtime="false">Operator plugin 1</setting>
+         <setting key="visibility" runtime="false">true</setting>
+         <setting key="order" runtime="false">1</setting>
+         <setting key="target-package" runtime="false">com.sonyericsson.androidapp.rrsetupwizard</setting>
+         <setting key="target-class" runtime="false">com.sonyericsson.androidapp.rrsetupwizard.RenrenLogin</setting>
+      </group>
+   </groups>
+   <groups type="services-plugins">
+      <group>
+         <setting key="id" runtime="false">Google Account</setting>
+         <setting key="visible" runtime="false">false</setting>
+      </group>
+      <group>
+         <setting key="id" runtime="false">Operator plugin 1</setting>
+         <setting key="visibility" runtime="false">true</setting>
+         <setting key="order" runtime="false">1</setting>
+         <setting key="target-package" runtime="false">com.sonyericsson.androidapp.rrsetupwizard</setting>
+         <setting key="target-class" runtime="false">com.sonyericsson.androidapp.rrsetupwizard.RenrenLogin</setting>
+      </group>
+   </groups>
+</settings>
