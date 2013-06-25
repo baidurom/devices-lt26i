@@ -20,8 +20,10 @@
         Lcom/android/server/BackupManagerService$BackupState;,
         Lcom/android/server/BackupManagerService$BackupRestoreTask;,
         Lcom/android/server/BackupManagerService$ClearDataObserver;,
+        Lcom/android/server/BackupManagerService$BaiduConnection;,
         Lcom/android/server/BackupManagerService$RunInitializeReceiver;,
         Lcom/android/server/BackupManagerService$RunBackupReceiver;,
+        Lcom/android/server/BackupManagerService$ObserveBaiduTransport;,
         Lcom/android/server/BackupManagerService$BackupHandler;,
         Lcom/android/server/BackupManagerService$Operation;,
         Lcom/android/server/BackupManagerService$FullRestoreParams;,
@@ -50,7 +52,7 @@
 
 .field static final CURRENT_ANCESTRAL_RECORD_VERSION:I = 0x1
 
-.field private static final DEBUG:Z = true
+.field private static final DEBUG:Z = false
 
 .field static final ENCRYPTION_ALGORITHM_NAME:Ljava/lang/String; = "AES-256"
 
@@ -69,6 +71,8 @@
 .field static final MSG_OP_COMPLETE:I = 0x15
 
 .field private static final MSG_PACKAGE_INSTALLATION_CHANGE:I = 0xb
+
+.field private static final MSG_RESTART_BAIDU_BACKUP_AGENT:I = 0xb
 
 .field private static final MSG_RESTORE_TIMEOUT:I = 0x8
 
@@ -165,6 +169,10 @@
 .end field
 
 .field volatile mBackupRunning:Z
+
+.field mBaiduConnection:Landroid/content/ServiceConnection;
+
+.field mBaiduLocalTransport:Lcom/android/internal/backup/IBackupTransport;
 
 .field mBaseStateDir:Ljava/io/File;
 
@@ -520,7 +528,22 @@
 
     iput-object v0, v1, Lcom/android/server/BackupManagerService;->mGoogleConnection:Landroid/content/ServiceConnection;
 
-    .line 722
+    .line 1419
+    new-instance v19, Lcom/android/server/BackupManagerService$BaiduConnection;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p0
+
+    invoke-direct {v0, v1}, Lcom/android/server/BackupManagerService$BaiduConnection;-><init>(Lcom/android/server/BackupManagerService;)V
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/BackupManagerService;->mBaiduConnection:Landroid/content/ServiceConnection;
+
+    .line 668
     move-object/from16 v0, p1
 
     move-object/from16 v1, p0
@@ -1379,6 +1402,9 @@
     .end local v12           #info:Landroid/content/pm/ApplicationInfo;
     .end local v14           #intent:Landroid/content/Intent;
     :goto_4
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/BackupManagerService;->registerBaiduTransport()V
+
+    .line 799
     invoke-direct/range {p0 .. p0}, Lcom/android/server/BackupManagerService;->parseLeftoverJournals()V
 
     .line 856
@@ -1692,6 +1718,17 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method static synthetic access$999(Lcom/android/server/BackupManagerService;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 131
+    invoke-direct {p0}, Lcom/android/server/BackupManagerService;->registerBaiduTransport()V
+
+    return-void
 .end method
 
 .method static synthetic access$1100(Lcom/android/server/BackupManagerService;I)[B
@@ -5326,6 +5363,114 @@
 
     .line 1102
     return-object v0
+.end method
+
+.method private registerBaiduTransport()V
+    .locals 7
+
+    .prologue
+    .line 830
+    const-string v4, "BackupManagerService"
+
+    const-string v5, "registerBaiduTransport"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 832
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-string v4, "com.baidu.bsf.service"
+
+    const-string v5, "com.baidu.backup.service.LocalTransportService"
+
+    invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 835
+    .local v0, componentName:Landroid/content/ComponentName;
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/BackupManagerService;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v1
+
+    .line 837
+    .local v1, info:Landroid/content/pm/ApplicationInfo;
+    iget v4, v1, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    .line 838
+    new-instance v4, Landroid/content/Intent;
+
+    invoke-direct {v4}, Landroid/content/Intent;-><init>()V
+
+    invoke-virtual {v4, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    .line 839
+    .local v2, intent:Landroid/content/Intent;
+    iget-object v4, p0, Lcom/android/server/BackupManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v5, p0, Lcom/android/server/BackupManagerService;->mBaiduConnection:Landroid/content/ServiceConnection;
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v4, v2, v5, v6}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 845
+    .end local v1           #info:Landroid/content/pm/ApplicationInfo;
+    .end local v2           #intent:Landroid/content/Intent;
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 841
+    :catch_0
+    move-exception v3
+
+    .line 842
+    .local v3, nnf:Landroid/content/pm/PackageManager$NameNotFoundException;
+    const-string v4, "BackupManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Baidu Transport"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, " not present"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
