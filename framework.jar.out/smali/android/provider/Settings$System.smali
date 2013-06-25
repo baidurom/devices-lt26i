@@ -215,6 +215,12 @@
 
 .field public static final POWER_SOUNDS_ENABLED:Ljava/lang/String; = "power_sounds_enabled"
 
+.field public static final PRE_SET_ALARM_ALERT:Ljava/lang/String; = "pre_set_alarm_alert"
+
+.field public static final PRE_SET_NOTIFICATION_SOUND:Ljava/lang/String; = "pre_set_notification_sound"
+
+.field public static final PRE_SET_RINGTONE:Ljava/lang/String; = "pre_set_ringtone"
+
 .field public static final RADIO_BLUETOOTH:Ljava/lang/String; = "bluetooth"
 
 .field public static final RADIO_CELL:Ljava/lang/String; = "cell"
@@ -312,6 +318,8 @@
 .field public static final VOLUME_MUSIC:Ljava/lang/String; = "volume_music"
 
 .field public static final VOLUME_NOTIFICATION:Ljava/lang/String; = "volume_notification"
+
+.field public static final VOLUME_REVOKE:Ljava/lang/String; = "volume_revoke"
 
 .field public static final VOLUME_RING:Ljava/lang/String; = "volume_ring"
 
@@ -772,8 +780,8 @@
 
     sput-object v0, Landroid/provider/Settings$System;->DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
-    .line 1908
-    const/16 v0, 0x3a
+    .line 1932
+    const/16 v0, 0x3b
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -1112,6 +1120,12 @@
     const/16 v1, 0x39
 
     const-string/jumbo v2, "pointer_speed"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x3a
+
+    const-string/jumbo v2, "volume_revoke"
 
     aput-object v2, v0, v1
 
