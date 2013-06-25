@@ -65,7 +65,7 @@ vendor_remove_dirs := app vendor/operator/app
 ##############################################################################
 # Vendor apks you want to use
 #-----------------------------------------------------------------------------
-# vendor_saved_apps := MtkBt FMRadioService Bluetooth
+ vendor_saved_apps := Bluetooth
 
 ##############################################################################
 # Apks build from current project root directory
@@ -134,5 +134,11 @@ override_property += \
 #-----------------------------------------------------------------------------
 remove_property += \
     dev.defaultwallpaper
+
+##############################################################################
+# Special case for Sony LT26i, vendor miss dbus.conf, use BAIDU_PREBUILT to keep it.
+#-----------------------------------------------------------------------------
+BAIDU_PREBUILT += \
+    etc/dbus.conf
 
 include $(PORT_BUILD)/main.mk
