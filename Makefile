@@ -128,6 +128,32 @@ vendor_modify_jars := framework services
 override_property += \
     qemu.hw.mainkeys=1
 
+# Change default region and language
+override_property += \
+    ro.product.locale.language=zh \
+    ro.product.locale.region=CN
+
+# Add baidu modified property
+override_property += \
+    ro.baidu.build.hardware=lt26i \
+    ro.baidu.build.hardware.version=1.0 \
+    ro.baidu.build.software=yi_3.0 \
+    ro.baidu.build.version.release=2.1 \
+    ro.product.manufacturer=Baidu
+
+override_property += \
+    ro.config.notification_sound=Ding.mp3 \
+    ro.config.ringtone=Echo.mp3 \
+    ro.config.alarm_alert=alarm.mp3 \
+    ro.config.rootperm.enable=1
+
+override_property += \
+    persist.sys.timezone=Asia/Shanghai \
+    persist.sys.usb.config=mass_storage,adb
+
+# property to show/hide feature of defaultWrite Settings
+override_property += \
+    ro.baidu.default_write.settable=true
 
 ##############################################################################
 # override_property: this property will override the build.prop
