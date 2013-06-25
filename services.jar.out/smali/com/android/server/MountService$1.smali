@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 172
+    .line 495
     iput-object p1, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,45 +35,138 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 7
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 174
-    iget-object v0, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+    const/4 v1, 0x1
 
-    #getter for: Lcom/android/server/MountService;->mVolumes:Ljava/util/ArrayList;
-    invoke-static {v0}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    .line 498
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    monitor-enter v1
+    move-result-object v0
 
-    .line 175
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+    .line 500
+    .local v0, action:Ljava/lang/String;
+    const-string v3, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v2
+    move-result v3
 
-    #calls: Lcom/android/server/MountService;->readStorageList(Landroid/content/res/Resources;)V
-    invoke-static {v0, v2}, Lcom/android/server/MountService;->access$100(Lcom/android/server/MountService;Landroid/content/res/Resources;)V
+    if-eqz v3, :cond_2
 
-    .line 176
-    monitor-exit v1
+    .line 501
+    iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
-    .line 177
+    #setter for: Lcom/android/server/MountService;->mBooted:Z
+    invoke-static {v3, v1}, Lcom/android/server/MountService;->access$502(Lcom/android/server/MountService;Z)Z
+
+    .line 507
+    const-string v3, "simulator"
+
+    const-string v4, "ro.product.device"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 508
+    iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    const/4 v4, 0x0
+
+    const-string v5, "/sdcard"
+
+    const/4 v6, 0x4
+
+    #calls: Lcom/android/server/MountService;->notifyVolumeStateChange(Ljava/lang/String;Ljava/lang/String;II)V
+    invoke-static {v3, v4, v5, v2, v6}, Lcom/android/server/MountService;->access$600(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;II)V
+
+    .line 585
+    :cond_0
+    :goto_0
     return-void
 
-    .line 176
-    :catchall_0
-    move-exception v0
+    .line 512
+    :cond_1
+    new-instance v2, Lcom/android/server/MountService$1$1;
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {v2, p0}, Lcom/android/server/MountService$1$1;-><init>(Lcom/android/server/MountService$1;)V
 
-    throw v0
+    invoke-virtual {v2}, Lcom/android/server/MountService$1$1;->start()V
+
+    goto :goto_0
+
+    .line 572
+    :cond_2
+    const-string v3, "android.hardware.usb.action.USB_STATE"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    .line 573
+    const-string v3, "connected"
+
+    invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const-string v3, "mass_storage"
+
+    invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 575
+    .local v1, available:Z
+    :goto_1
+    iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    #calls: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Z)V
+    invoke-static {v2, v1}, Lcom/android/server/MountService;->access$1200(Lcom/android/server/MountService;Z)V
+
+    goto :goto_0
+
+    .end local v1           #available:Z
+    :cond_3
+    move v1, v2
+
+    .line 573
+    goto :goto_1
+
+    .line 576
+    :cond_4
+    const-string v2, "android.intent.action.LOCALE_CHANGED"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 577
+    new-instance v2, Lcom/android/server/MountService$1$2;
+
+    invoke-direct {v2, p0}, Lcom/android/server/MountService$1$2;-><init>(Lcom/android/server/MountService$1;)V
+
+    invoke-virtual {v2}, Lcom/android/server/MountService$1$2;->start()V
+
+    goto :goto_0
 .end method
