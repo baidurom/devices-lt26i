@@ -107,9 +107,9 @@
     invoke-virtual {p0, v5}, Lcom/android/server/am/AppErrorDialog;->setCancelable(Z)V
 
     .line 64
-    const/4 v2, -0x1
+    const/4 v2, -0x2
 
-    const v3, 0x1040407
+    const v3, #string@force_close#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -123,15 +123,10 @@
 
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/am/AppErrorDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
-    .line 68
-    iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
-
-    if-eqz v2, :cond_0
-
     .line 69
-    const/4 v2, -0x2
+    const/4 v2, -0x1
 
-    const v3, 0x1040408
+    const v3, #string@report#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
