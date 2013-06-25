@@ -163,6 +163,7 @@
 
 .field protected final mUnknownConnectionRegistrants:Landroid/os/RegistrantList;
 
+.field protected final mLineControlInfoRegistrants:Landroid/os/RegistrantList;
 
 # direct methods
 .method static constructor <clinit>()V
@@ -379,6 +380,12 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
+
+    new-instance v0, Landroid/os/RegistrantList;
+
+    invoke-direct {v0}, Landroid/os/RegistrantList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/internal/telephony/CallManager;->mLineControlInfoRegistrants:Landroid/os/RegistrantList;
 
     .line 177
     return-void
@@ -4279,4 +4286,34 @@
     iput-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
     goto :goto_0
+.end method
+
+.method public registerForLineControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
+    .locals 1
+    .parameter "h"
+    .parameter "what"
+    .parameter "obj"
+
+    .prologue
+    .line 1455
+    iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mLineControlInfoRegistrants:Landroid/os/RegistrantList;
+
+    invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
+
+    .line 1456
+    return-void
+.end method
+
+.method public unregisterForLineControlInfo(Landroid/os/Handler;)V
+    .locals 1
+    .parameter "h"
+
+    .prologue
+    .line 1460
+    iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mLineControlInfoRegistrants:Landroid/os/RegistrantList;
+
+    invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
+
+    .line 1461
+    return-void
 .end method
