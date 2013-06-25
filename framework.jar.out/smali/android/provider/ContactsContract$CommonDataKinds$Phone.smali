@@ -71,6 +71,9 @@
 
 .field public static final TYPE_WORK_PAGER:I = 0x12
 
+.field public static final SEARCH_DISPLAY_NAME_KEY:Ljava/lang/String; = "search_display_name"
+
+.field public static final SEARCH_PHONE_NUMBER_KEY:Ljava/lang/String; = "search_phone_number"
 
 # direct methods
 .method static constructor <clinit>()V
