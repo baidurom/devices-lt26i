@@ -20,7 +20,7 @@
 
 .field private static final SYSTEM:Ljava/lang/String; = "/system/fonts/"
 
-.field private static final SYSTEM_FONT_TIME_FOREGROUND:Ljava/lang/String; = "/system/fonts/SoMADigitLight.ttf"
+.field private static final SYSTEM_FONT_TIME_FOREGROUND:Ljava/lang/String; = "/system/fonts/Clockopia.ttf"
 
 .field private static final sForegroundFont:Landroid/graphics/Typeface;
 
