@@ -1073,7 +1073,7 @@
     iput-object v5, p0, Lcom/android/internal/widget/TransportControlView;->mBtnNext:Landroid/widget/ImageView;
 
     .line 225
-    const/4 v5, 0x4
+    const/4 v5, 0x3
 
     new-array v1, v5, [Landroid/view/View;
 
@@ -1090,12 +1090,6 @@
     aput-object v6, v1, v5
 
     const/4 v5, 0x2
-
-    iget-object v6, p0, Lcom/android/internal/widget/TransportControlView;->mBtnPause:Landroid/widget/ImageView;
-
-    aput-object v6, v1, v5
-
-    const/4 v5, 0x3
 
     iget-object v6, p0, Lcom/android/internal/widget/TransportControlView;->mBtnNext:Landroid/widget/ImageView;
 
