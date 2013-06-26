@@ -2008,9 +2008,9 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v4}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Z
+    invoke-virtual {v0, v2, v4}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)I
 
-    .line 3809
+    .line 3822
     invoke-virtual/range {p0 .. p0}, Landroid/app/ActivityThread;->applyCompatConfiguration()Landroid/content/res/Configuration;
 
     .line 3811
@@ -7286,7 +7286,10 @@
     .local v0, thread:Landroid/app/ActivityThread;
     invoke-direct {v0, v2}, Landroid/app/ActivityThread;->attach(Z)V
 
-    .line 4441
+    .line 4449
+    invoke-static {v0}, Landroid/app/ActivityThread;->multiTheme_freeCanvas(Landroid/app/ActivityThread;)V
+
+    .line 4456
     invoke-static {}, Landroid/os/Looper;->loop()V
 
     .line 4443
@@ -7297,6 +7300,75 @@
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
+.end method
+
+.method private static multiTheme_freeCanvas(Landroid/app/ActivityThread;)V
+    .locals 1
+    .parameter "thread"
+
+    .prologue
+    .line 3613
+    invoke-virtual {p0}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->themeChanged:I
+
+    if-eqz v0, :cond_0
+
+    .line 3614
+    invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
+
+    .line 3615
+
+    .line 3617
+    :cond_0
+    return-void
+.end method
+
+.method private final multiTheme_refreshFontCache(ILandroid/content/ComponentCallbacks2;)V
+    .locals 2
+    .parameter "diff"
+    .parameter "cb"
+
+    .prologue
+    .line 3602
+    const/high16 v1, -0x8000
+
+    and-int/2addr v1, p1
+
+    if-eqz v1, :cond_0
+
+    .line 3603
+    instance-of v1, p2, Landroid/content/ContextWrapper;
+
+    if-eqz v1, :cond_0
+
+    .line 3604
+    check-cast p2, Landroid/content/ContextWrapper;
+
+    .end local p2
+    invoke-virtual {p2}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    .line 3605
+    .local v0, context:Landroid/content/Context;
+    instance-of v1, v0, Landroid/app/ContextImpl;
+
+    if-eqz v1, :cond_0
+
+
+
+    .line 3610
+    :cond_0
+    return-void
 .end method
 
 .method private final performConfigurationChanged(Landroid/content/ComponentCallbacks2;Landroid/content/res/Configuration;)V
@@ -9652,9 +9724,9 @@
     const/4 v0, 0x0
 
     :try_start_0
-    invoke-virtual {p0, p1, v0}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Z
+    invoke-virtual {p0, p1, v0}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)I
 
-    .line 3498
+    .line 3479
     monitor-exit v1
 
     .line 3499
@@ -9671,129 +9743,130 @@
     throw v0
 .end method
 
-.method final applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Z
-    .locals 8
+.method final applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)I
+    .locals 7
     .parameter "config"
     .parameter "compat"
 
     .prologue
-    const/4 v5, 0x1
+    .line 3485
+    iget-object v5, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
 
-    const/4 v6, 0x0
+    if-nez v5, :cond_0
 
-    .line 3503
-    iget-object v7, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
+    .line 3486
+    new-instance v5, Landroid/content/res/Configuration;
 
-    if-nez v7, :cond_0
+    invoke-direct {v5}, Landroid/content/res/Configuration;-><init>()V
 
-    .line 3504
-    new-instance v7, Landroid/content/res/Configuration;
+    iput-object v5, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
 
-    invoke-direct {v7}, Landroid/content/res/Configuration;-><init>()V
-
-    iput-object v7, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
-
-    .line 3506
+    .line 3488
     :cond_0
-    iget-object v7, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
+    iget-object v5, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
 
-    invoke-virtual {v7, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
+    invoke-virtual {v5, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_1
+    if-nez v5, :cond_2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
-    .line 3551
-    :goto_0
-    return v6
+    .line 3491
+    const/4 v0, 0x0
 
-    .line 3511
+    .line 3534
     :cond_1
-    iget-object v7, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
+    return v0
 
-    invoke-virtual {v7, p1}, Landroid/content/res/Configuration;->updateFrom(Landroid/content/res/Configuration;)I
+    .line 3493
+    :cond_2
+    iget-object v5, p0, Landroid/app/ActivityThread;->mResConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v5, p1}, Landroid/content/res/Configuration;->updateFrom(Landroid/content/res/Configuration;)I
 
     move-result v0
 
-    .line 3512
+    .line 3494
     .local v0, changes:I
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {p0, v7, v5}, Landroid/app/ActivityThread;->getDisplayMetricsLocked(Landroid/content/res/CompatibilityInfo;Z)Landroid/util/DisplayMetrics;
+    const/4 v6, 0x1
+
+    invoke-virtual {p0, v5, v6}, Landroid/app/ActivityThread;->getDisplayMetricsLocked(Landroid/content/res/CompatibilityInfo;Z)Landroid/util/DisplayMetrics;
 
     move-result-object v1
 
-    .line 3514
+    .line 3496
     .local v1, dm:Landroid/util/DisplayMetrics;
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_4
 
-    iget-object v7, p0, Landroid/app/ActivityThread;->mResCompatibilityInfo:Landroid/content/res/CompatibilityInfo;
+    iget-object v5, p0, Landroid/app/ActivityThread;->mResCompatibilityInfo:Landroid/content/res/CompatibilityInfo;
 
-    if-eqz v7, :cond_2
+    if-eqz v5, :cond_3
 
-    iget-object v7, p0, Landroid/app/ActivityThread;->mResCompatibilityInfo:Landroid/content/res/CompatibilityInfo;
+    iget-object v5, p0, Landroid/app/ActivityThread;->mResCompatibilityInfo:Landroid/content/res/CompatibilityInfo;
 
-    invoke-virtual {v7, p2}, Landroid/content/res/CompatibilityInfo;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p2}, Landroid/content/res/CompatibilityInfo;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_3
+    if-nez v5, :cond_4
 
-    .line 3516
-    :cond_2
+    .line 3498
+    :cond_3
     iput-object p2, p0, Landroid/app/ActivityThread;->mResCompatibilityInfo:Landroid/content/res/CompatibilityInfo;
 
-    .line 3517
+    .line 3499
     or-int/lit16 v0, v0, 0xd00
 
-    .line 3523
-    :cond_3
-    iget-object v7, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    if-eqz v7, :cond_4
-
-    .line 3524
-    iget-object v7, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-static {v7}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
-
-    .line 3527
+    .line 3505
     :cond_4
+    iget-object v5, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    if-eqz v5, :cond_5
+
+    .line 3506
+    iget-object v5, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-static {v5}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
+
+    .line 3509
+    :cond_5
     invoke-static {p1, v1, p2}, Landroid/content/res/Resources;->updateSystemConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
 
-    .line 3529
+    .line 3511
     invoke-static {}, Landroid/app/ApplicationPackageManager;->configurationChanged()V
 
-    .line 3532
-    iget-object v7, p0, Landroid/app/ActivityThread;->mActiveResources:Ljava/util/HashMap;
+    .line 3514
+    iget-object v5, p0, Landroid/app/ActivityThread;->mActiveResources:Ljava/util/HashMap;
 
-    invoke-virtual {v7}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v5}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-interface {v7}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .line 3536
+    .line 3518
     .local v2, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/ref/WeakReference<Landroid/content/res/Resources;>;>;"
-    :goto_1
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_6
+    if-eqz v5, :cond_1
 
-    .line 3537
+    .line 3519
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/ref/WeakReference;
 
-    .line 3538
+    .line 3520
     .local v4, v:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/content/res/Resources;>;"
     invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -9801,36 +9874,20 @@
 
     check-cast v3, Landroid/content/res/Resources;
 
-    .line 3539
+    .line 3521
     .local v3, r:Landroid/content/res/Resources;
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
-    .line 3542
+    .line 3524
     invoke-virtual {v3, p1, v1, p2}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
-
-    goto :goto_1
-
-    .line 3547
-    :cond_5
-    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
-
-    goto :goto_1
-
-    .line 3551
-    .end local v3           #r:Landroid/content/res/Resources;
-    .end local v4           #v:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/content/res/Resources;>;"
-    :cond_6
-    if-eqz v0, :cond_7
-
-    :goto_2
-    move v6, v5
 
     goto :goto_0
 
-    :cond_7
-    move v5, v6
+    .line 3529
+    :cond_6
+    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method final cleanUpPendingRemoveWindows(Landroid/app/ActivityThread$ActivityClientRecord;)V
@@ -11458,144 +11515,168 @@
 .end method
 
 .method final handleConfigurationChanged(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
-    .locals 5
+    .locals 7
     .parameter "config"
     .parameter "compat"
 
     .prologue
-    .line 3569
+    .line 3552
     const/4 v1, 0x0
 
-    .line 3571
+    .line 3554
     .local v1, callbacks:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ComponentCallbacks2;>;"
-    iget-object v4, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
-
-    monitor-enter v4
-
-    .line 3572
-    :try_start_0
-    iget-object v3, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
-
-    if-eqz v3, :cond_1
-
-    .line 3573
-    iget-object v3, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
-
-    invoke-virtual {v3, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 3574
-    iget-object p1, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
-
-    .line 3576
-    :cond_0
     const/4 v3, 0x0
 
-    iput-object v3, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+    .line 3556
+    .local v3, diff:I
+    iget-object v6, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
 
-    .line 3579
+    monitor-enter v6
+
+    .line 3557
+    :try_start_0
+    iget-object v5, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v5, :cond_1
+
+    .line 3558
+    iget-object v5, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v5, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    .line 3559
+    iget-object p1, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    .line 3561
+    :cond_0
+    const/4 v5, 0x0
+
+    iput-object v5, p0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    .line 3564
     :cond_1
     if-nez p1, :cond_3
 
-    .line 3580
-    monitor-exit v4
+    .line 3565
+    monitor-exit v6
 
-    .line 3605
+    .line 3598
     :cond_2
     :goto_0
     return-void
 
-    .line 3586
+    .line 3572
     :cond_3
-    invoke-virtual {p0, p1, p2}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Z
-
-    .line 3588
-    iget-object v3, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
-
-    invoke-virtual {v3, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
+    invoke-virtual {p0, p1, p2}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)I
 
     move-result v3
 
-    if-nez v3, :cond_4
+    .line 3574
+    iget-object v5, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
-    if-nez p2, :cond_4
+    if-nez v5, :cond_4
 
-    .line 3589
-    monitor-exit v4
+    .line 3575
+    new-instance v5, Landroid/content/res/Configuration;
+
+    invoke-direct {v5}, Landroid/content/res/Configuration;-><init>()V
+
+    iput-object v5, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    .line 3577
+    :cond_4
+    iget-object v5, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v5, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_5
+
+    if-nez p2, :cond_5
+
+    .line 3578
+    monitor-exit v6
 
     goto :goto_0
 
-    .line 3594
+    .line 3583
     :catchall_0
-    move-exception v3
+    move-exception v5
 
-    monitor-exit v4
+    monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v3
+    throw v5
 
-    .line 3591
-    :cond_4
+    .line 3580
+    :cond_5
     :try_start_1
-    iget-object v3, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+    iget-object v5, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
-    invoke-virtual {v3, p1}, Landroid/content/res/Configuration;->updateFrom(Landroid/content/res/Configuration;)I
+    invoke-virtual {v5, p1}, Landroid/content/res/Configuration;->updateFrom(Landroid/content/res/Configuration;)I
 
-    .line 3592
+    .line 3581
     invoke-virtual {p0}, Landroid/app/ActivityThread;->applyCompatConfiguration()Landroid/content/res/Configuration;
 
     move-result-object p1
 
-    .line 3593
-    const/4 v3, 0x0
+    .line 3582
+    const/4 v5, 0x0
 
-    invoke-virtual {p0, v3, p1}, Landroid/app/ActivityThread;->collectComponentCallbacksLocked(ZLandroid/content/res/Configuration;)Ljava/util/ArrayList;
+    invoke-virtual {p0, v5, p1}, Landroid/app/ActivityThread;->collectComponentCallbacksLocked(ZLandroid/content/res/Configuration;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 3594
-    monitor-exit v4
+    .line 3583
+    monitor-exit v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 3597
+    .line 3586
     invoke-static {}, Landroid/view/WindowManagerImpl;->getDefault()Landroid/view/WindowManagerImpl;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Landroid/view/WindowManagerImpl;->trimLocalMemory()V
+    invoke-virtual {v5}, Landroid/view/WindowManagerImpl;->trimLocalMemory()V
 
-    .line 3599
+    .line 3588
     if-eqz v1, :cond_2
 
-    .line 3600
+    .line 3589
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 3601
+    .line 3590
     .local v0, N:I
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .local v2, i:I
+    .local v4, i:I
     :goto_1
-    if-ge v2, v0, :cond_2
+    if-ge v4, v0, :cond_2
 
-    .line 3602
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .line 3592
+    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/content/ComponentCallbacks2;
+    check-cast v2, Landroid/content/ComponentCallbacks2;
 
-    invoke-direct {p0, v3, p1}, Landroid/app/ActivityThread;->performConfigurationChanged(Landroid/content/ComponentCallbacks2;Landroid/content/res/Configuration;)V
+    .line 3593
+    .local v2, cb:Landroid/content/ComponentCallbacks2;
+    invoke-direct {p0, v3, v2}, Landroid/app/ActivityThread;->multiTheme_refreshFontCache(ILandroid/content/ComponentCallbacks2;)V
 
-    .line 3601
-    add-int/lit8 v2, v2, 0x1
+    .line 3594
+    invoke-direct {p0, v2, p1}, Landroid/app/ActivityThread;->performConfigurationChanged(Landroid/content/ComponentCallbacks2;Landroid/content/res/Configuration;)V
+
+    .line 3590
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 .end method

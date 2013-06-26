@@ -218,6 +218,8 @@
 
 .field public static final ACTION_SYSTEM_TUTORIAL:Ljava/lang/String; = "android.intent.action.SYSTEM_TUTORIAL"
 
+.field public static final ACTION_THEME_CHANGED:Ljava/lang/String; = "android.intent.action.THEME_CHANGED"
+
 .field public static final ACTION_TIMEZONE_CHANGED:Ljava/lang/String; = "android.intent.action.TIMEZONE_CHANGED"
 
 .field public static final ACTION_TIME_CHANGED:Ljava/lang/String; = "android.intent.action.TIME_SET"
@@ -371,6 +373,8 @@
 .field public static final EXTRA_DONT_KILL_APP:Ljava/lang/String; = "android.intent.extra.DONT_KILL_APP"
 
 .field public static final EXTRA_EMAIL:Ljava/lang/String; = "android.intent.extra.EMAIL"
+
+.field public static final EXTRA_EXCLUDE_PACKAGES:Ljava/lang/String; = "yi.intent.extra.EXCLUDE_PACKAGES"
 
 .field public static final EXTRA_INITIAL_INTENTS:Ljava/lang/String; = "android.intent.extra.INITIAL_INTENTS"
 
