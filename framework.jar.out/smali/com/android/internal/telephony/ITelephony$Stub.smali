@@ -124,6 +124,7 @@
 
 .field static final TRANSACTION_updateServiceLocation:I = 0x14
 
+.field static final TRANSACTION_getIccPinPukRetryTimes:I = 0x32
 
 # direct methods
 .method public constructor <init>()V
@@ -1812,6 +1813,26 @@
 
     goto :goto_18
 
+    .line 391
+    .end local v9           #_result:I
+    :sswitch_32
+    const-string v0, "com.android.internal.telephony.ITelephony"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/ITelephony$Stub;->getIccPinPukRetryTimes()I
+
+    move-result v9
+
+    .restart local v9       #_result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v0, 0x1
+
+    goto/16 :goto_0
+
     .line 45
     nop
 
@@ -1866,6 +1887,7 @@
         0x2f -> :sswitch_2f
         0x30 -> :sswitch_30
         0x31 -> :sswitch_31
+        0x32 -> :sswitch_32
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method
