@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:icon="@drawable/ic_settings_no_unlock" android:persistent="false" android:title="@string/unlock_set_unlock_off_title" android:key="unlock_set_off" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_hotword" android:persistent="false" android:title="@string/unlock_set_unlock_baidu_search_title" android:key="unlock_set_baidu_hotword" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_theme" android:persistent="false" android:title="@string/unlock_set_unlock_theme_title" android:key="unlock_set_theme" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_pattern" android:persistent="false" android:title="@string/unlock_set_unlock_pattern_title" android:key="unlock_set_pattern" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_voiceprint_unlock" android:persistent="false" android:title="@string/unlock_set_unlock_voiceprint_title" android:key="unlock_set_voiceprint" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_num" android:persistent="false" android:title="@string/unlock_set_unlock_pin_title" android:key="unlock_set_pin" />
+    <PreferenceScreen android:icon="@drawable/ic_settings_key" android:persistent="false" android:title="@string/unlock_set_unlock_password_title" android:key="unlock_set_password" />
+</PreferenceScreen>
