@@ -71,11 +71,11 @@
 
     aput-object v1, v0, v4
 
-    const-string v1, "extra-numbers"
+    const-string v1, "_id"
 
     aput-object v1, v0, v5
 
-    const-string v1, "_id"
+    const-string v1, "index"
 
     aput-object v1, v0, v6
 
@@ -1022,7 +1022,7 @@
     .end local v6           #i$:I
     .end local v7           #len$:I
     :cond_1
-    const/4 v9, 0x3
+    const/4 v9, 0x4
 
     invoke-virtual {p1}, Lcom/android/internal/telephony/AdnRecord;->getAllAnrAsOneString()Ljava/lang/String;
 
@@ -1031,7 +1031,7 @@
     aput-object v10, v2, v9
 
     .line 712
-    const/4 v9, 0x4
+    const/4 v9, 0x3
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
