@@ -32,6 +32,10 @@
 
 .field static final TAG:Ljava/lang/String; = "InputMethodService"
 
+.field static final ACTION_IME_CHANGED:Ljava/lang/String; = "android.intent.action.ime_changed"
+
+.field static final EXTRA_IME_STATE:Ljava/lang/String; = "ime_state"
+
 
 # instance fields
 .field final mActionClickListener:Landroid/view/View$OnClickListener;
@@ -1640,44 +1644,60 @@
 .end method
 
 .method public hideWindow()V
-    .locals 4
+    .locals 5
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 1459
-    invoke-direct {p0}, Landroid/inputmethodservice/InputMethodService;->finishViews()V
-
-    .line 1460
-    iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService;->mToken:Landroid/os/IBinder;
-
-    iget v2, p0, Landroid/inputmethodservice/InputMethodService;->mBackDisposition:I
-
-    invoke-virtual {v0, v1, v3, v2}, Landroid/view/inputmethod/InputMethodManager;->setImeWindowStatus(Landroid/os/IBinder;II)V
-
-    .line 1461
-    iget-boolean v0, p0, Landroid/inputmethodservice/InputMethodService;->mWindowVisible:Z
-
-    if-eqz v0, :cond_0
+    const/4 v4, 0x0
 
     .line 1462
-    iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->hide()V
+    invoke-direct {p0}, Landroid/inputmethodservice/InputMethodService;->finishViews()V
 
     .line 1463
-    iput-boolean v3, p0, Landroid/inputmethodservice/InputMethodService;->mWindowVisible:Z
+    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService;->mImm:Landroid/view/inputmethod/InputMethodManager;
+
+    iget-object v2, p0, Landroid/inputmethodservice/InputMethodService;->mToken:Landroid/os/IBinder;
+
+    iget v3, p0, Landroid/inputmethodservice/InputMethodService;->mBackDisposition:I
+
+    invoke-virtual {v1, v2, v4, v3}, Landroid/view/inputmethod/InputMethodManager;->setImeWindowStatus(Landroid/os/IBinder;II)V
 
     .line 1464
-    invoke-virtual {p0}, Landroid/inputmethodservice/InputMethodService;->onWindowHidden()V
+    iget-boolean v1, p0, Landroid/inputmethodservice/InputMethodService;->mWindowVisible:Z
+
+    if-eqz v1, :cond_0
 
     .line 1465
-    iput-boolean v3, p0, Landroid/inputmethodservice/InputMethodService;->mWindowWasVisible:Z
+    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    invoke-virtual {v1}, Landroid/inputmethodservice/SoftInputWindow;->hide()V
+
+    .line 1466
+    iput-boolean v4, p0, Landroid/inputmethodservice/InputMethodService;->mWindowVisible:Z
 
     .line 1467
+    invoke-virtual {p0}, Landroid/inputmethodservice/InputMethodService;->onWindowHidden()V
+
+    .line 1468
+    iput-boolean v4, p0, Landroid/inputmethodservice/InputMethodService;->mWindowWasVisible:Z
+
+    .line 1470
     :cond_0
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.ime_changed"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 1471
+    .local v0, intent:Landroid/content/Intent;
+    const-string v1, "ime_state"
+
+    invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 1472
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/InputMethodService;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 1473
     return-void
 .end method
 
@@ -3494,10 +3514,28 @@
 .end method
 
 .method public onWindowShown()V
-    .locals 0
+    .locals 3
 
     .prologue
-    .line 1476
+    .line 1482
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.ime_changed"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 1483
+    .local v0, intent:Landroid/content/Intent;
+    const-string v1, "ime_state"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 1484
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/InputMethodService;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 1485
     return-void
 .end method
 
