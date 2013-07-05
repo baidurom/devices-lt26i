@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 8095
+    .line 7917
     iput-object p1, p0, Landroid/widget/TextView$EasyEditSpanController$1;->this$1:Landroid/widget/TextView$EasyEditSpanController;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 8098
+    .line 7920
     iget-object v0, p0, Landroid/widget/TextView$EasyEditSpanController$1;->this$1:Landroid/widget/TextView$EasyEditSpanController;
 
     #calls: Landroid/widget/TextView$EasyEditSpanController;->hide()V
-    invoke-static {v0}, Landroid/widget/TextView$EasyEditSpanController;->access$1200(Landroid/widget/TextView$EasyEditSpanController;)V
+    invoke-static {v0}, Landroid/widget/TextView$EasyEditSpanController;->access$1000(Landroid/widget/TextView$EasyEditSpanController;)V
 
-    .line 8099
+    .line 7921
     return-void
 .end method

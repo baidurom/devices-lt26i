@@ -9,12 +9,12 @@
     .parameter "context"
 
     .prologue
-    .line 54
+    .line 50
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 55
+    .line 51
     return-void
 .end method
 
@@ -24,12 +24,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 58
-    const v0, 0x101006e
+    .line 54
+    const v0, #attr@editTextStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 59
+    .line 55
     return-void
 .end method
 
@@ -40,7 +40,7 @@
     .parameter "defStyle"
 
     .prologue
-    .line 62
+    .line 58
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 63
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 48
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
@@ -201,37 +201,4 @@
 
     .line 83
     return-void
-.end method
-
-.method protected useLeftToRightDirectionality()Z
-    .locals 3
-
-    .prologue
-    .line 127
-    invoke-super {p0}, Landroid/widget/TextView;->useLeftToRightDirectionality()Z
-
-    move-result v0
-
-    .line 129
-    .local v0, result:Z
-    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    .line 130
-    .local v1, text:Landroid/text/Editable;
-    if-eqz v1, :cond_0
-
-    invoke-interface {v1}, Landroid/text/Editable;->length()I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 131
-    const/4 v0, 0x0
-
-    .line 134
-    :cond_0
-    return v0
 .end method
