@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="scale_selectable_frequency_width">7.3299866dip</dimen>
+    <dimen name="scale_gap_width">100.0dip</dimen>
+</resources>

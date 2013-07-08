@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radio_rds_info_margin">59.0px</dimen>
+    <dimen name="radio_frequency_indicator_margin">77.0px</dimen>
+    <dimen name="radio_frequency_scale_height">186.0px</dimen>
+    <dimen name="radio_buttonrow_height">69.0px</dimen>
+</resources>

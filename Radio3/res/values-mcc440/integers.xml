@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="min_frequency">76000</integer>
+    <integer name="max_frequency">90000</integer>
+    <integer name="channel_offset">100</integer>
+</resources>

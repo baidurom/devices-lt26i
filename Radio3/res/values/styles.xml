@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FmRadioApplicationTheme" parent="@android:style/Theme.DeviceDefault">
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="StartupProgressDialog" parent="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="ScanProgressDialog" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:directionality">leftToRight</item>
+    </style>
+    <style name="BiDiEnabledDialog" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:directionality">leftToRight</item>
+    </style>
+    <style name="CustomActionBarStyle" parent="@android:style/Widget.DeviceDefault.ActionBar">
+        <item name="android:background">@drawable/radio_actionbar_bg</item>
+    </style>
+</resources>

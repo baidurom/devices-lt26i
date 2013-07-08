@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/radio_main" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/main_panel" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/frequency_display" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+            <ImageView android:id="@id/frequency_display_background" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <TextView android:textSize="15.0dip" android:textColor="@color/radio_frequency_display_text_color" android:id="@id/stereo_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="58.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+            <ImageView android:id="@id/audio_output_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="3.0dip" android:layout_below="@id/stereo_indicator" android:layout_alignParentLeft="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/radio_rds_info_margin" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/favorite_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/radio_favorite_indicator_large" />
+                <TextView android:textSize="25.0dip" android:textColor="@color/radio_frequency_display_text_color" android:id="@id/rds_info" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            </LinearLayout>
+            <TextView android:textSize="80.0dip" android:id="@id/frequency_indicator" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/radio_frequency_indicator_margin" android:height="90.0dip" android:includeFontPadding="false" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="20.0dip" android:id="@id/frequency_mhz_indicator" android:paddingLeft="230.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MHz" android:layout_alignBaseline="@id/frequency_indicator" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/frequency_display_divider" android:background="@drawable/radio_frequency_display_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <RelativeLayout android:id="@id/frequency_scale" android:background="@color/radio_frequency_scale_bg_color" android:layout_width="fill_parent" android:layout_height="@dimen/radio_frequency_scale_height" android:layout_below="@id/frequency_display_divider">
+            <com.sonyericsson.fmradio.ui.widget.VernissageView android:id="@id/scale_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" />
+            <LinearLayout android:paddingLeft="1.0px" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_centerHorizontal="true">
+                <ImageView android:background="@drawable/scale_needle_tiled" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_centerHorizontal="true" />
+            </LinearLayout>
+            <com.sonyericsson.fmradio.ui.widget.StairView android:id="@id/scale_frequency_texts" android:layout_width="fill_parent" android:layout_height="12.0dip" android:layout_marginTop="10.0dip" android:layout_alignParentTop="true" />
+            <com.sonyericsson.fmradio.ui.widget.StairView android:id="@id/scale_favorites_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="5.5dip" android:layout_below="@id/scale_frequency_texts" />
+            <ImageView android:background="@drawable/radio_scale_gradient" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </RelativeLayout>
+        <ImageView android:id="@id/frequency_scale_divider" android:background="@drawable/radio_frequency_scale_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/buttonrow" android:paddingLeft="8.0dip" android:paddingTop="8.0dip" android:paddingRight="8.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/radio_buttonrow_height" android:layout_below="@id/frequency_scale">
+            <ImageButton android:id="@id/btn_previous_station" android:layout_width="wrap_content" android:layout_height="47.0dip" android:layout_marginRight="4.0dip" android:src="@drawable/radio_button_icon_prev_station" android:layout_weight="1.0" android:contentDescription="@string/description_prev_station" />
+            <ImageButton android:id="@id/btn_next_station" android:layout_width="wrap_content" android:layout_height="47.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/radio_button_icon_next_station" android:layout_weight="1.0" android:contentDescription="@string/description_next_station" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/footer" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/radio_footer_height" android:layout_alignParentBottom="true">
+        <ImageButton android:id="@id/btn_previous_favorite" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="8.0dip" android:src="@drawable/radio_prev_fav_button_selector" android:layout_weight="1.0" android:contentDescription="@string/description_previous_favourite" />
+        <ImageButton android:id="@id/btn_favorites" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/radio_button_icon_favorite" android:layout_weight="1.0" android:contentDescription="@string/description_favourite" />
+        <ImageButton android:id="@id/btn_next_favorite" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:src="@drawable/radio_next_fav_button_selector" android:layout_weight="1.0" android:contentDescription="@string/description_next_favourite" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/fmradio_off_mode" android:background="@color/radio_power_off_background" android:visibility="invisible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</RelativeLayout>

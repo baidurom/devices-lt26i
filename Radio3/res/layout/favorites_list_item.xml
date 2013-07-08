@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:directionality="leftToRight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/favorite_text" android:background="?android:selectableItemBackground" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:ellipsize="marquee" android:gravity="center_vertical" android:id="@android:id/text1" android:paddingLeft="14.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" style="@android:style/TextAppearance.Medium"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+    </LinearLayout>
+    <View android:background="@drawable/favorite_edit_divider" android:layout_width="1.0px" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" />
+    <ImageView android:id="@id/edit_favorite" android:background="?android:selectableItemBackground" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/radio_edit_favorite" android:scaleType="center" android:minWidth="?android:listPreferredItemHeight" android:contentDescription="@string/description_edit_favourite" />
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="6291461" android:versionName="3.0.A.0.5" package="com.sonyericsson.fmradio"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="com.stericsson.permission.FM_RADIO_RECEIVER" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <application android:theme="@style/FmRadioApplicationTheme" android:label="@string/fmradio_strings_app_name_txt" android:icon="@drawable/radio_launcher_icon">
+        <activity android:label="@string/fmradio_strings_app_name_txt" android:name=".ui.FmRadioActivity" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".service.FmService" />
+        <receiver android:name=".ui.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

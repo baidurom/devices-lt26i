@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" semc:directionality="leftToRight"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:semc="http://schemas.android.com/apk/res/com.sonyericsson.uxp">
+    <RelativeLayout android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/buttons" android:layout_centerVertical="true">
+        <TextView android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent.Title" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/fmradio_strings_notification_txt" android:singleLine="true" android:layout_alignParentLeft="true" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/title" android:layout_alignParentLeft="true">
+            <ImageView android:id="@id/favorite_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/radio_scale_favorite_indicator" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent" android:ellipsize="end" android:id="@id/rds" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:singleLine="true" android:layout_toRightOf="@id/favorite_indicator" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/buttons" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" semc:directionality="none">
+        <ImageView android:id="@id/prev" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/radio_notification_prev_station" android:layout_toLeftOf="@id/next" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/next" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/radio_notification_next_station" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </LinearLayout>
+</RelativeLayout>

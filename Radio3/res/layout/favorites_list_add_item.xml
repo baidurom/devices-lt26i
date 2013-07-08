@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:directionality="leftToRight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/add_icon" android:background="@drawable/radio_add_favorite" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:gravity="center_vertical" android:id="@id/favorite_add_frequency_view" android:paddingLeft="14.0dip" android:paddingRight="14.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:layout_toRightOf="@id/add_icon" style="@android:style/TextAppearance.Medium" />
+</RelativeLayout>
