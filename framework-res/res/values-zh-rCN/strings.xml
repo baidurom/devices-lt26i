@@ -730,9 +730,9 @@
     <string name="eventTypeAnniversary">周年纪念</string>
     <string name="eventTypeOther">其他</string>
     <string name="emailTypeCustom">自定义</string>
-    <string name="emailTypeHome">电子邮件：住宅</string>
-    <string name="emailTypeWork">电子邮件：单位</string>
-    <string name="emailTypeOther">电子邮件：其他</string>
+    <string name="emailTypeHome">家用</string>
+    <string name="emailTypeWork">单位</string>
+    <string name="emailTypeOther">其他</string>
     <string name="emailTypeMobile">手机</string>
     <string name="postalTypeCustom">自定义</string>
     <string name="postalTypeHome">住宅</string>
