@@ -179,7 +179,7 @@
     if-nez v2, :cond_2
 
     .line 198
-    const v2, 0x1040137
+    const v2, #string@power_off#t
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -188,7 +188,7 @@
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 199
-    const v2, 0x104013b
+    const v2, #string@shutdown_progress#t
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -561,9 +561,9 @@
     .parameter "confirm"
 
     .prologue
-    const v8, 0x1040013
+    const v8, #string@yes#t
 
-    const v7, 0x1040009
+    const v7, #string@no#t
 
     .line 94
     sget-object v5, Lcom/android/internal/app/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
@@ -601,7 +601,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0012
+    const v5, #integer@config_longPressOnPowerBehavior#t
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -613,7 +613,7 @@
 
     if-ne v2, v4, :cond_1
 
-    const v3, 0x104013d
+    const v3, #string@shutdown_confirm_question#t
 
     .line 107
     .local v3, resourceId:I
@@ -659,7 +659,7 @@
 
     invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x1040137
+    const v5, #string@power_off#t
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -727,7 +727,7 @@
     .line 103
     .restart local v2       #longPressBehavior:I
     :cond_1
-    const v3, 0x104013c
+    const v3, #string@shutdown_confirm#t
 
     goto :goto_1
 
@@ -739,7 +739,7 @@
 
     invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x1080027
+    const v5, #drawable@ic_dialog_alert#t
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
