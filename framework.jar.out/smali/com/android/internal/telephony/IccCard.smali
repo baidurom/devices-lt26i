@@ -1606,8 +1606,6 @@
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x2000
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
     .line 622
     const-string/jumbo v1, "phoneName"
 
