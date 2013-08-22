@@ -987,6 +987,29 @@
     if-nez v7, :cond_0
 
     .line 893
+    if-eqz p3, :cond_1000
+
+    const-string v7, "com.sonyericsson.fmradio.png"
+
+    invoke-virtual {v7, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1000
+
+    const-string v7, "com.sonyericsson.fmradio"
+
+    invoke-virtual {v7, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1000
+
+    .line 894
+    const-string p1, "com.baidu.fm.png"
+
+    .line 897
+    :cond_1000
     new-instance v6, Ljava/lang/StringBuffer;
 
     const-string v7, "/data/data/com.baidu.thememanager.ui/files"
