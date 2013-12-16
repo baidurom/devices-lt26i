@@ -2,55 +2,12 @@
 # Please use this file as the project Makefile reference
 
 ##############################################################################
-# This value defines which overlay should be choose, only use for baidu internal.
-# Support values: rom-mtk, baidu-4.0
-# when your product is mtk, you can choose rom-mtk, otherwise set it to baidu-4.0
-#-----------------------------------------------------------------------------
-BAIDU_FRAMEWORK_OVERLAY_TYPE := baidu-4.0
-
-##############################################################################
 # Default DALVIK_VM_BUILD setting is 27
 # android 4.0: 27
 # android 4.1: 28
 # htc t328t is special one
 #-----------------------------------------------------------------------------
 DALVIK_VM_BUILD := 27
-
-##############################################################################
-# This value will control the method of pack or unpack image and so on
-# you can use mtk/qualcomm/sony
-#-----------------------------------------------------------------------------
-PLATFORM := sony
-
-##############################################################################
-# This value will control the method of unpack image when prepare BOOT when use a ota base zip
-# you can use mtk/qualcomm/sony
-#-----------------------------------------------------------------------------
-BASE_PLATFORM := sony
-
-##############################################################################
-# you can custom boot image and recovery image name
-#-----------------------------------------------------------------------------
-# BOOT_IMG := bootname
-# RECOVERY_IMG := recoveryname
-
-##############################################################################
-# use for newproject, not unpack boot.img to BOOT, or not unpack recovery.img to RECOVERY
-# Support Values:
-# false, not unpack
-#-----------------------------------------------------------------------------
-# PRJ_UNPACK_BOOT_IMG := false
-# PRJ_UNPACK_RECOVERY_IMG := false
-
-##############################################################################
-# customize weather use prebuilt image or pack from BOOT/RECOVERY directory
-# Support Values:
-# true, use prebuilt boot.img/recovery.img
-# flase, pack boot.img/recovery.img from vendor/BOOT / vendor/RECOVERY
-# NULL, none boot.img/recovery.img
-#-----------------------------------------------------------------------------
-PREBUILT_BOOT_IMG := false
-# PREBUILT_RECOVERY_IMG := flase
 
 ##############################################################################
 # Directorys which you want to remove in vendor directory
