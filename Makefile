@@ -10,6 +10,16 @@
 DALVIK_VM_BUILD := 27
 
 ##############################################################################
+# customize weather use prebuilt image or pack from BOOT/RECOVERY directory
+# Support Values:
+# vendor_modify_images := boot recovery
+# boot/recovery, pack boot.img/recovery.img from vendor/BOOT / vendor/RECOVERY
+# NULL, check boot.img/recovery.img in project root directory, if it exists,
+# use a prebuilt boot.img/recovery.img, if not, nothing to do
+#-----------------------------------------------------------------------------
+vendor_modify_images := boot.img
+
+##############################################################################
 # Directorys which you want to remove in vendor directory
 #-----------------------------------------------------------------------------
 vendor_remove_dirs := app vendor/operator/app
