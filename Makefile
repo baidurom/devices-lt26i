@@ -134,4 +134,14 @@ remove_property += \
 BAIDU_PREBUILT += \
     etc/dbus.conf
 
+################### Auto Patch Constants Definition #########################
+# Current ROM version and the new version to be ugraded.
+# These two are useful for ROM upgrading.
+# When UPGRADE_VERSION is none, means to upgrade to the newest version.
+#-----------------------------------------------------------------------------
+ROM_VERSION := ROM39
+#UPGRADE_VERSION := ROM39
+
+
 include $(PORT_BUILD)/main.mk
+include $(PORT_BUILD)/autopatch.mk

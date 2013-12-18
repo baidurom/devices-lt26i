@@ -1577,3 +1577,39 @@
 
     goto :goto_0
 .end method
+
+.method public static isLowRamDeviceStatic()Z
+    .locals 3
+
+    .prologue
+    .line 226
+    const-string/jumbo v0, "true"
+
+    const-string/jumbo v1, "ro.config.low_ram"
+
+    const-string v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+    
+
+.method public isLowRamDevice()Z
+    .locals 1
+
+    .prologue
+    .line 221
+    invoke-static {}, Landroid/app/ActivityManager;->isLowRamDeviceStatic()Z
+
+    move-result v0
+
+    return v0
+.end method
+    
